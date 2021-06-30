@@ -1,0 +1,880 @@
+$background: #dae0e6;
+$default-white: #ffffff;
+$default-white2: #ececec;
+$default-black: #000000;
+$default-black2: #6d6d6d;
+$default-orange: #ff4500;
+$default-blue: #0079d3;
+$default-blue-hover: #dcf0ff;
+$default-blue-hover2: #2386d1;
+$default-red: #ff0000;
+
+* {
+    transition: .3s;
+}
+body {
+    background-color: $background;
+    #form {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        #inputs {
+            align-self: center;
+            justify-self: center;
+            background-color: $default-white;
+            margin-top: -20%;
+            min-width: 800px;
+            width: 50%;
+            //max-width: 1000px;
+            border-radius: 20px;
+            h1 {
+                margin: 30px;
+                span {
+                    color: $default-orange;
+                }
+            }
+            h2 {
+                margin: 30px;
+                font-size: larger;
+            }
+            div {
+                margin: 30px;
+                input {
+                    width: 300px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    border-width: 1px;
+                }
+                input[type="submit"] {
+                    color: $default-white;
+                    background-color: $default-blue;
+                    border-radius: 20px;
+                    border: none;
+                }
+                input[type="submit"]:hover {
+                    background-color: $default-blue-hover2;
+                }
+                h3 {
+                    font-size: medium;
+                    color: $default-red;
+                }
+            }
+        }
+    }
+    #navBar {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        width: 100%;
+        height: 70px;
+        background-color: $default-white;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        h1 {
+            margin-left: 20px;
+            align-self: center;
+            justify-self: left;
+            color: $default-orange;
+            cursor: pointer;
+        }
+        h1:hover {
+            color: $default-blue;
+        }
+        #search {
+            display: flex;
+            align-self: center;
+            justify-self: right;
+            #searchBar {
+                width: 50vw;
+                max-width: 500px;
+                height: 35px;
+                align-self: center;
+                justify-self: center;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 2px solid $default-white2;
+                border-radius: 20px;
+            }
+            #searchBar:hover {
+                border: 2px solid $default-blue-hover;
+            }
+            #searchBar:focus {
+                outline: none;
+                border: 2px solid $default-blue-hover;
+            }
+            #searchIcon {
+                display: grid;
+                margin-left: -35px;
+                height: 35px;
+                width: 35px;
+                cursor: pointer;
+                background-color: $default-orange;
+                color: $default-white;
+                border-radius: 20px;
+                align-content: center;
+                justify-content: center;
+            }
+            #searchIcon:hover {
+                color: $default-white;
+                background-color: $default-blue;
+            }
+        } 
+        #NavBar-links {
+            align-self: center;
+            justify-self: right;
+            a {
+                min-width: 100px;
+                height: 40px;
+                text-align: center;
+                padding: 6px;
+                padding-left: 15px;
+                padding-right: 15px;
+                color: $default-blue;
+                background-color: $default-white;
+                cursor: pointer;
+                border: 1px solid $default-blue;
+                border-radius: 20px;
+                margin: 10px;
+            } 
+            a:hover {
+                background-color: $default-blue-hover;
+                text-decoration: none;
+            }
+        }
+        
+    }
+    #posts {
+        margin-top: 100px;
+        display: grid;
+        .searchFor {
+            justify-self: center;
+            background-color: $default-white;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            svg {
+                color: $default-blue;
+                margin-right: 20px;
+            }
+            p {
+                margin-left: calc(50% - 90px);
+                text-align: left;
+                font-size: larger;
+                color: $default-orange;
+                font-weight: 500;
+            }
+        }
+        .sort {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            align-items: center;
+            justify-self: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 10px;
+            background-color: $default-white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            h1 {
+                justify-self: left;
+                font-size: 20px;
+            }
+            a {
+                justify-self: right;
+                min-width: 100px;
+                height: 40px;
+                text-align: center;
+                padding: 6px;
+                color: $default-blue;
+                background-color: $default-white;
+                cursor: pointer;
+                border: 1px solid $default-blue;
+                border-radius: 20px;
+            } 
+            a.selected {
+                background-color: $default-blue;
+                color: $default-white;
+                border: 1px solid $default-blue-hover;
+            }
+            a:hover {
+                background-color: $default-blue-hover;
+            }
+        }
+        .post {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 60px calc(100vw - 60px);
+            width: 100%;
+            max-width: 800px;
+            justify-self: center;
+            .votes {
+                text-align: center;
+                background-color: $default-white2;
+                padding: 10px;
+                width: 60px;
+                font-size: 20px;
+                border-bottom-left-radius: 10px;
+                border-top-left-radius: 10px;
+                p {
+                    margin-top: 10px;
+                    width: 100%;
+                }
+                svg {
+                    font-size: 30px;
+                    cursor: pointer;
+                    transition: .1s
+                }
+                svg:first-child:hover { 
+                    filter: drop-shadow(0 0 10px $default-black2);
+                    color: $default-orange;
+                }
+                svg:last-child:hover {
+                    filter: drop-shadow(0 0 10px $default-black2);
+                    color: $default-blue;
+                }
+                .plus {
+                    color: $default-orange;
+                }
+                .minus {
+                    color: $default-blue;
+                }
+            }
+            .content {
+                padding: 10px;
+                background-color: $default-white;
+                display: grid;
+                border-bottom-right-radius: 10px;
+                border-top-right-radius: 10px;
+                cursor: pointer;
+                width: calc(100vw - 60px);
+                max-width: calc(800px - 60px);
+                justify-self: left;
+                transition: 0s;
+                p:first-child, a {
+                    color: $default-black2;
+                    font-weight: 200;
+                    a:first-child {
+                        color: $default-black;
+                        font-weight: 500;
+                    }
+                    .join {
+                        float: right;
+                        background-color: $default-blue;
+                        color: $default-white;
+                        font-weight: 600;
+                        min-width: 100px;
+                        height: 40px;
+                        text-align: center;
+                        padding: 6px;
+                        cursor: pointer;
+                        border: 1px solid $default-blue-hover2;
+                        border-radius: 20px;
+                    }
+                    .join:hover {
+                        background-color: $default-blue-hover2;
+                    }
+                    .joined {
+                        float: right;
+                        min-width: 100px;
+                        height: 40px;
+                        text-align: center;
+                        padding: 6px;
+                        color: $default-blue;
+                        background-color: $default-white;
+                        cursor: pointer;
+                        border: 1px solid $default-blue;
+                        border-radius: 20px;
+                    }
+                    .joined:hover {
+                        background-color: $default-blue-hover;
+                    }
+                }
+                a {
+                    h1 {
+                        color: $default-black;
+                        font-size: large;
+                        text-align: justify;
+                    }
+                    h1:hover {
+                        text-decoration: underline;
+                    }
+                }
+                h2 {
+                    font-size: medium;
+                    font-weight: 400;
+                    text-align: justify;
+                }
+                img {
+                    justify-self: center;
+                    width: 100%;
+                    max-width: 1000px;
+                }
+                .wrapper {
+                    margin-top: 10px;
+                    position: relative;
+                    width: 100%;
+                    padding-top: 56.25%;
+                    iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .comments {
+                    margin-top: 10px;
+                    display: grid;
+                    grid-template-columns: 20px auto;
+                    width: 150px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border-width: 1px;
+                    cursor: pointer;
+                    p {
+                        margin: 0;
+                        align-self: center;
+                        justify-self: left; 
+                        padding-left: 10px;
+                    }
+                    svg {
+                        justify-self: left;
+                        font-size: 20px;
+                        align-self: center;
+                    }
+                }
+                .comments:hover {
+                    background-color: $default-white2;
+                }
+                .moderator {
+                    display: flex;
+                    margin-top: -40px;
+                    justify-self: right;
+                    p {
+                        margin-right: 10px;
+                        background-color: $default-orange;
+                        color: $default-white;
+                        font-weight: 500;
+                        padding: 5px;
+                        border-radius: 20px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        cursor: pointer;
+                    }
+                    p:hover {
+                        background-color: $default-red;
+                    }
+                }
+            }
+            .new-comment {
+                .write-comment {
+                    margin-top: 10px;
+                    display: flex;
+                    align-self: center;
+                    justify-self: right;
+                    padding-right: 0;
+                    textarea {
+                        resize: none;
+                        overflow:hidden;
+                        width: 100%;
+                        max-width: 600px;
+                        height: 35px;
+                        align-self: center;
+                        justify-self: left;
+                        padding-left: 10px;
+                        box-sizing: border-box;
+                        border: 2px solid $default-white2;
+                        border-radius: 20px;
+                    }
+                    textarea:hover {
+                        border: 2px solid $default-blue-hover;
+                    }
+                    textarea:focus {
+                        outline: none;
+                        border: 2px solid $default-blue-hover;
+                    }
+                    .send-comment {
+                        justify-self: left;
+                        display: grid;
+                        margin-left: -35px;
+                        height: 35px;
+                        width: 35px;
+                        cursor: pointer;
+                        background-color: $default-orange;
+                        color: $default-white;
+                        border-radius: 20px;
+                        align-content: center;
+                        justify-content: center;
+                    }
+                    .send-comment:hover {
+                        color: $default-white;
+                        background-color: $default-blue;
+                    }
+                    .login-register-box {
+                        align-self: center;
+                        justify-self: right;
+                        a {
+                            min-width: 100px;
+                            height: 40px;
+                            text-align: center;
+                            padding: 6px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            color: $default-blue;
+                            background-color: $default-white;
+                            cursor: pointer;
+                            border: 1px solid $default-blue;
+                            border-radius: 20px;
+                            margin-left: 10px
+                        } 
+                        a:hover {
+                            background-color: $default-blue-hover;
+                        }
+                    }
+                }
+                .write-comment-disabled {
+                    textarea {
+                        width: 50%;
+                    } 
+                }
+            }
+            .user-comments {
+                h2 {
+                    color: #ff4500;
+                    font-size: xx-large;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                margin-top: 10px;
+                margin-left: -40px;
+                .comment {
+                    .comment-buttons {
+                        display: flex; 
+                        .reply, .edit, .delete {
+                            margin-right: 20px;
+                            cursor: pointer;
+                            p {
+                                transition: .1s;
+                                svg {
+                                    transition: 0s;
+                                    path {
+                                        transition: 0s;
+                                    }
+                                }
+                            }
+                        }
+                        .reply:hover p {
+                            color: $default-orange;
+                        }
+                        .edit:hover p {
+                            color: $default-blue;
+                        }
+                        .delete:hover p {
+                            color: $default-red;
+                        }
+                    }
+                    .comment-box {
+                        display: flex;
+                        margin-top: 10px;
+                        margin-bottom: 20px;
+                        textarea {
+                            resize: none;
+                            overflow:hidden;
+                            width: 100%;
+                            max-width: 600px;
+                            height: 35px;
+                            align-self: center;
+                            justify-self: left;
+                            padding-left: 10px;
+                            box-sizing: border-box;
+                            border: 2px solid $default-white2;
+                            border-radius: 20px;
+                        }
+                        textarea:hover {
+                            border: 2px solid $default-blue-hover;
+                        }
+                        textarea:focus {
+                            outline: none;
+                            border: 2px solid $default-blue-hover;
+                        }
+                        .send-comment {
+                            justify-self: left;
+                            display: grid;
+                            margin-left: -35px;
+                            height: 35px;
+                            width: 35px;
+                            cursor: pointer;
+                            background-color: $default-orange;
+                            color: $default-white;
+                            border-radius: 20px;
+                            align-content: center;
+                            justify-content: center;
+                        }
+                        .send-comment:hover {
+                            color: $default-white;
+                            background-color: $default-blue;
+                        }
+                    }
+                    .subcomment {
+                        display: grid;
+                        grid-template-columns: 40px auto;
+                        margin-bottom: 20px;
+                        .line {
+                            height: 100%;
+                            background-color: $default-blue-hover;
+                            width: 2px;
+                            margin-left: 20px;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .post:hover {
+            border-radius: 10px;
+            box-shadow: 0px 1px 10px $default-black2;
+        }
+        .post-solo {
+            .votes {
+                background-color: $default-white;
+            }
+            .content {
+                h1 {
+                    font-size: larger;
+                }
+                cursor: auto;
+            } 
+        }
+        .post-solo:hover {
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .info {
+            display: flex;
+            justify-self: center;
+            flex-wrap: wrap;
+            background-color: $default-white;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            padding: 10px;
+            .user-info {
+                padding: 10px;
+                min-width: 390px;
+                width: 50%;
+                .member-of {                    
+                    .of {
+                        height: 150px;
+                        overflow: scroll;
+                        overflow-x: hidden;
+                        margin-bottom: 10px;
+                        .span {
+                            text-align: right;
+                            padding: 10px;
+                            padding-right: 20px;
+                            margin-bottom: 10px;
+                            border-radius: 10px;
+                            a {
+                                color: $default-black;
+                            }
+                            p {
+                                margin-top: -10px;
+                                margin-bottom: 0;
+                                color: $default-black2;
+                            }
+                        }
+                        .span:hover {
+                            background-color: $default-white2;
+                        }
+                    }
+                    .of::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+                button {
+                    min-width: 100px;
+                    height: 40px;
+                    text-align: center;
+                    padding: 6px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    color: $default-blue;
+                    background-color: $default-white;
+                    cursor: pointer;
+                    border: 1px solid $default-blue;
+                    border-radius: 20px;
+                    margin: 10px;
+                } 
+                button:hover {
+                    background-color: $default-blue-hover;
+                    text-decoration: none;
+                }
+                input, textarea {
+                    width: 90vw;
+                    max-width: 370px;
+                    height: 35px;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid $default-white2;
+                    border-radius: 20px;
+                    margin-bottom: 5px;
+                }
+                input:hover, textarea:hover {
+                    border: 2px solid $default-blue-hover;
+                }
+                input:focus, textarea:focus {
+                    outline: none;
+                    border: 2px solid $default-blue-hover;
+                }
+                input[type=submit] {
+                    background-color: $default-orange;
+                    color: $default-white;
+                    border: none;
+                    padding: 4px;
+                }
+                input[type=submit]:hover {
+                    background-color: $default-red;
+                }
+                h5 {
+                    size: 10px;
+                    color: $default-red;
+                }
+                textarea {
+                    height: 100px;
+                }
+            }
+            .reddit-info {
+                padding: 10px;
+                min-width: 390px;
+                width: 50%;
+                textarea {
+                    width: 90vw;
+                    max-width: 350px;
+                    height: 100px;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid $default-white2;
+                    border-radius: 20px;
+                    margin-bottom: 10px;
+                }
+                textarea:hover {
+                    border: 2px solid $default-blue-hover;
+                }
+                textarea:focus {
+                    outline: none;
+                    border: 2px solid $default-blue-hover;
+                }
+                .edit {
+                    margin-top: -10px;
+                    background-color: $default-blue;
+                    float: right;
+                    color: $default-white;
+                    font-weight: 600;
+                    min-width: 100px;
+                    height: 40px;
+                    text-align: center;
+                    padding: 6px;
+                    cursor: pointer;
+                    border: 1px solid $default-blue-hover2;
+                    border-radius: 20px;
+                }
+                .edit:hover {
+                    background-color: $default-blue-hover2;
+                }
+                .members {                    
+                    .of {
+                        height: 150px;
+                        overflow: scroll;
+                        overflow-x: hidden;
+                        margin-bottom: 10px;
+                        .span {
+                            text-align: right;
+                            padding: 10px;
+                            padding-right: 20px;
+                            margin-bottom: 10px;
+                            border-radius: 10px;
+                            a {
+                                color: $default-black;
+                            }
+                            p {
+                                margin-top: -10px;
+                                margin-bottom: 0;
+                                color: $default-black2;
+                            }
+                        }
+                        .span:hover {
+                            background-color: $default-white2;
+                        }
+                    }
+                    .of::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+                .members:first-child {
+                    .of {
+                        height: 80px;
+                    }
+                    
+                }
+            }
+        }
+        .create-post {
+            justify-self: center;
+            display: grid;
+            background-color: $default-white;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            padding: 20px;
+            a {
+                background-color: $default-blue;
+                color: $default-white;
+                font-weight: 600;
+                min-width: 100px;
+                height: 40px;
+                text-align: center;
+                padding: 6px;
+                cursor: pointer;
+                border: 1px solid $default-blue-hover2;
+                border-radius: 20px;
+                justify-self: center;
+            }
+            a:hover {
+                background-color: $default-blue-hover2;
+            }
+            .create {
+                input[type=text], textarea {
+                    width: 90vw;
+                    max-width: 700px;
+                    height: 35px;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid $default-white2;
+                    border-radius: 20px;
+                    margin-bottom: 10px;
+                }
+                textarea {
+                    height: 100px;
+                }
+                input[type=text]:hover, textarea:hover {
+                    border: 2px solid $default-blue-hover;
+                }
+                input[type=text]:focus, textarea:focus {
+                    outline: none;
+                    border: 2px solid $default-blue-hover;
+                }
+                input[type=submit] {
+                    background-color: $default-orange;
+                    color: $default-white;
+                    float: right;
+                    border: none;
+                    padding: 4px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    height: 35px;
+                    box-sizing: border-box;
+                    border-radius: 20px;
+                    margin-bottom: 10px;
+                }
+                input[type=file] {
+                    padding-bottom: 10px;
+                }
+                img {
+                    justify-self: center;
+                    width: 100%;
+                    max-width: 1000px;
+                    margin-bottom: 10px;
+                }
+            }
+            
+        }
+    }
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        width: 100vw;
+        #navBar {
+            width: 100vw;
+            display: flex;
+            flex-wrap: wrap;
+            height: 120px;
+            align-items: center;
+            justify-content: center;
+            #search {
+                #searchBar {
+                    margin-left: 10px;
+                    width: calc(100vw - 100px);
+                }
+            }
+            #NavBar-links {
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        #posts {
+            margin-top: 130px;
+            .post {
+                .content {
+                    .moderator {
+                        display: grid;
+                        grid-template-columns: auto;
+                    }
+                }
+                .new-comment {
+                    .login-register-box {
+                        display: none;
+                    }
+                }
+            }
+            .sort {
+                width: 100vw;
+                display: grid;
+                grid-template-columns: auto;
+                align-items: center;
+                justify-content: center;
+                a {
+                    margin-top: 10px;
+                    margin-right: auto;
+                }
+            }
+            .info {
+                .user-info {
+                    min-width: 90vw;
+                }
+                .reddit-info {
+                    min-width: 90vw;
+                }
+            }
+            .create-post {
+                span {
+                    display: flex;
+                    a {
+                        justify-self: center;
+                        align-self: center;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        #form {
+            display: flex;
+            #inputs {
+                min-width: 100vw;
+            }
+        }
+    }
+}
